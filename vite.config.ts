@@ -6,7 +6,7 @@ export default defineConfig({
   base: '/MyCookbook/',
   build: {
     outDir: 'dist',
-    assetsDir: 'assets',  // 恢复 assets 目录
+    assetsDir: '',  // 移除 assets 目录
     chunkSizeWarningLimit: 1000,
     rollupOptions: {
       output: {
@@ -14,9 +14,17 @@ export default defineConfig({
           'mui': ['@mui/material', '@mui/icons-material'],
           'vendor': ['react', 'react-dom', 'react-router-dom', 'date-fns']
         },
-        entryFileNames: '[name].[hash].js',      // 移除 assets 前缀
-        chunkFileNames: '[name].[hash].js',      // 移除 assets 前缀
-        assetFileNames: '[name].[hash][extname]' // 移除 assets 前缀
+        // 所有文件直接放在根目录下
+        entryFileNames: '[name].[hash].js',
+        chunkFileNames: '[name].[hash].js',
+        assetFileNames: (assetInfo) => {
+          const info = assetInfo.name.split('.');
+          const ext = info[info.length - 1];
+          if (/png|jpe?g|svg|gif|tiff|bmp|ico/i.test(ext)) {
+            return `img/[name].[hash][extname]`;
+          }
+          return `[name].[hash][extname]`;
+        }
       }
     }
   }
