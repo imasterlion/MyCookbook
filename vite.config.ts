@@ -3,10 +3,10 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/MyCookbook/',  // 改回项目名称
+  base: '/MyCookbook/',
   build: {
     outDir: 'dist',
-    assetsDir: '',
+    assetsDir: 'assets',  // 恢复 assets 目录
     chunkSizeWarningLimit: 1000,
     rollupOptions: {
       output: {
@@ -14,9 +14,9 @@ export default defineConfig({
           'mui': ['@mui/material', '@mui/icons-material'],
           'vendor': ['react', 'react-dom', 'react-router-dom', 'date-fns']
         },
-        entryFileNames: `assets/[name].[hash].js`,      // 添加 assets 前缀
-        chunkFileNames: `assets/[name].[hash].js`,      // 添加 assets 前缀
-        assetFileNames: `assets/[name].[hash][extname]` // 添加 assets 前缀
+        entryFileNames: '[name].[hash].js',      // 移除 assets 前缀
+        chunkFileNames: '[name].[hash].js',      // 移除 assets 前缀
+        assetFileNames: '[name].[hash][extname]' // 移除 assets 前缀
       }
     }
   }
