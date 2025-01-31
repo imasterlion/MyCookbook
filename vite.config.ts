@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import path from 'path'
 
 export default defineConfig({
   plugins: [react()],
@@ -10,7 +11,7 @@ export default defineConfig({
     chunkSizeWarningLimit: 1000,
     rollupOptions: {
       input: {
-        main: '/Users/shenyang/Documents/个人/Program/MyCookbook/index.html'
+        main: path.resolve(__dirname, 'index.html')  // 使用正确的入口文件路径
       },
       output: {
         manualChunks: {
