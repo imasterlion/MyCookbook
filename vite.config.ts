@@ -12,14 +12,8 @@ export default defineConfig({
       output: {
         manualChunks: {
           'mui': ['@mui/material', '@mui/icons-material'],
-          'date': ['date-fns'],
-          'vendor': ['react', 'react-dom', 'react-router-dom']
-        },
-        assetFileNames: (assetInfo) => {
-          return `assets/[name]-[hash][extname]`
-        },
-        chunkFileNames: 'assets/[name]-[hash].js',
-        entryFileNames: 'assets/[name]-[hash].js'
+          'vendor': ['react', 'react-dom', 'react-router-dom', 'date-fns'] // 将 date-fns 合并到 vendor 包中
+        }
       }
     }
   }
