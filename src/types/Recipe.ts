@@ -2,17 +2,17 @@ export interface Recipe {
   id: string;
   name: string;
   images: string[];
-  cookingDate: Date;
+  cookingDate: string;  // 改为 string 类型
   rating: number;
   cookingMethod?: string;
   reviews: Review[];
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt: string;    // 改为 string 类型
+  updatedAt: string;    // 改为 string 类型
 }
 
 export interface Review {
   id: string;
   content: string;
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt: string;    // 改为 string 类型
+  updatedAt: string;    // 改为 string 类型
 }
