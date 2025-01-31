@@ -9,12 +9,13 @@ export default defineConfig({
     assetsDir: '',
     chunkSizeWarningLimit: 1000,
     rollupOptions: {
+      input: {
+        main: '/Users/shenyang/Documents/个人/Program/MyCookbook/index.html'
+      },
       output: {
-        // 恢复代码分割
         manualChunks: {
           'vendor': ['react', 'react-dom', 'react-router-dom', 'date-fns', '@mui/material', '@mui/icons-material'],
         },
-        // 简化输出路径
         entryFileNames: `[name].[hash].js`,
         chunkFileNames: `[name].[hash].js`,
         assetFileNames: `[name].[hash][extname]`
