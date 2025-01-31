@@ -1,4 +1,4 @@
-import{r as p,R as Jt,_ as Ye,a as Kt,b as g,t as xt}from"./mui.DX6iBeRl.js";/**
+import{r as p,R as Jt,_ as Ye,a as Kt,b as g,t as xt}from"./mui-DX6iBeRl.js";/**
  * @remix-run/router v1.22.0
  *
  * Copyright (c) Remix Software Inc.
