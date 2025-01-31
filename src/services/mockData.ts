@@ -1,60 +1,28 @@
 import { Recipe } from '../types/Recipe';
 
-// 从 localStorage 获取数据，如果没有则使用默认数据
-export const getRecipes = (): Recipe[] => {
-  const savedRecipes = localStorage.getItem('recipes');
-  if (savedRecipes) {
-    return JSON.parse(savedRecipes);
+const defaultRecipes: Recipe[] = [
+  {
+    id: '1',
+    name: '示例菜品',
+    images: ['data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgZmlsbD0iI2VlZSIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMjQiIGZpbGw9IiM5OTkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj7ngrnlh7vliqDovb3lm77niYc8L3RleHQ+PC9zdmc+'],
+    cookingDate: new Date().toISOString(),
+    rating: 4.5,
+    cookingMethod: '这是一个示例菜品的制作方法...',
+    reviews: [],
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString()
   }
+];
 
-  const defaultRecipes: Recipe[] = [
-    {
-      id: '1',
-      name: '红烧肉',
-      images: ['https://images.pexels.com/photos/2313686/pexels-photo-2313686.jpeg'],
-      cookingDate: new Date('2024-01-15'),
-      rating: 4.5,
-      cookingMethod: '步骤1...',
-      reviews: [],
-      createdAt: new Date('2024-01-15'),
-      updatedAt: new Date('2024-01-15')
-    },
-    {
-      id: '2',
-      name: '清炒小白菜',
-      images: ['https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg'],
-      cookingDate: new Date('2024-01-14'),
-      rating: 4,
-      cookingMethod: '步骤1...',
-      reviews: [],
-      createdAt: new Date('2024-01-14'),
-      updatedAt: new Date('2024-01-14')
-    },
-    {
-      id: '3',
-      name: '番茄炒蛋',
-      images: ['https://images.pexels.com/photos/1410235/pexels-photo-1410235.jpeg'],
-      cookingDate: new Date('2024-01-13'),
-      rating: 5,
-      cookingMethod: '步骤1...',
-      reviews: [],
-      createdAt: new Date('2024-01-13'),
-      updatedAt: new Date('2024-01-13')
-    },
-    {
-      id: '4',
-      name: '水煮鱼',
-      images: ['https://images.pexels.com/photos/699953/pexels-photo-699953.jpeg'],
-      cookingDate: new Date('2024-01-12'),
-      rating: 4.5,
-      cookingMethod: '步骤1...',
-      reviews: [],
-      createdAt: new Date('2024-01-12'),
-      updatedAt: new Date('2024-01-12')
+export const getRecipes = (): Recipe[] => {
+  try {
+    const stored = localStorage.getItem('recipes');
+    if (stored) {
+      return JSON.parse(stored);
     }
-  ];
-
-  localStorage.setItem('recipes', JSON.stringify(defaultRecipes));
+  } catch (error) {
+    console.error('Failed to load recipes:', error);
+  }
   return defaultRecipes;
 };
 
