@@ -49,21 +49,7 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
-.masonry-grid {
-  display: flex;
-  width: 100%;
-  margin-left: -16px;
-}
 
-.masonry-grid_column {
-  padding-left: 16px;
-  background-clip: padding-box;
-}
-
-.masonry-grid_column > div {
-  margin-bottom: 16px;
-}
-```css
 .masonry-grid {
   display: flex;
   width: 100%;
