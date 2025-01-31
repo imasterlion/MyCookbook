@@ -4,7 +4,7 @@ import { ThemeProvider } from '@mui/material'
 import CssBaseline from '@mui/material/CssBaseline'
 import App from './App'
 import { theme } from './theme'
-import './index.css'  // 恢复直接导入
+import './index.css'  // 直接导入 CSS，不需要命名导入
 
 const root = document.getElementById('root')
 
