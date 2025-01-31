@@ -48,7 +48,7 @@ const RecipeDetail = () => {
     const updatedRecipe = {
       ...recipe,
       cookingMethod: tempMethod,
-      updatedAt: new Date()
+      updatedAt: new Date().toISOString()  // Convert Date to string
     };
     const updatedRecipes = recipes.map(r => 
       r.id === recipe.id ? updatedRecipe : r
@@ -67,8 +67,8 @@ const RecipeDetail = () => {
     const newReviewObj: Review = {
       id: Date.now().toString(),
       content: newReview.trim(),
-      createdAt: new Date(),
-      updatedAt: new Date()
+      createdAt: new Date().toISOString(),  // Convert Date to string
+      updatedAt: new Date().toISOString()   // Convert Date to string
     };
     const updatedRecipe = {
       ...recipe,
@@ -102,8 +102,8 @@ const RecipeDetail = () => {
       ...recipe,
       reviews: recipe.reviews.map(r => 
         r.id === reviewId 
-          ? { ...r, content: tempReview, updatedAt: new Date() }
-          : r
+          ? { ...r, content: tempReview, updatedAt: new Date().toISOString() }  // Convert Date to string
+        : r
       )
     };
     const recipes = getRecipes();

@@ -78,20 +78,17 @@ const UploadRecipe = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!validateForm()) return;
-
-    // 将图片转换为 base64 字符串
-    const imagePromises = images.map(file => {
-      return new Promise<string>((resolve) => {
-        const reader = new FileReader();
-        reader.onloadend = () => resolve(reader.result as string);
-        reader.readAsDataURL(file);
-      });
-    });
-
-    const imageUrls = await Promise.all(imagePromises);
+  
+    const recipe = {
+      name,
+      images: imageUrls,
+      cookingDate: selectedDate.toISOString(),  // Convert Date to string
+      rating,
+      cookingMethod
+    };
 
     // 保存菜品数据
     saveRecipe({
