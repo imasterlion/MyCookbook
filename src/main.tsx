@@ -1,10 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { ThemeProvider } from '@mui/material'
+import { ThemeProvider, createTheme } from '@mui/material'  // 添加 createTheme
 import CssBaseline from '@mui/material/CssBaseline'
 import App from './App'
-import { theme } from './theme'
-import './index.css'  // 直接导入 CSS，不需要命名导入
+import './index.css'
+
+const theme = createTheme()  // 临时创建主题
 
 const root = document.getElementById('root')
 
