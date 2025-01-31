@@ -4,7 +4,7 @@ import { ThemeProvider } from '@mui/material'
 import CssBaseline from '@mui/material/CssBaseline'
 import App from './App'
 import { theme } from './theme'
-import './index.css'
+import styles from './index.css'  // 修改为命名导入
 
 const root = document.getElementById('root')
 
