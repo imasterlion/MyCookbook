@@ -94,7 +94,7 @@ const UploadRecipe = () => {
     saveRecipe({
       name,
       images: imageUrls,
-      cookingDate,
+      cookingDate: cookingDate.toISOString(), // 转换为字符串
       rating: rating || 0,
       cookingMethod
     });
