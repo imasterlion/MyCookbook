@@ -11,10 +11,15 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: undefined,
-        // 添加 MyCookbook 前缀到文件名
-        entryFileNames: `MyCookbook/[name].[hash].js`,
-        chunkFileNames: `MyCookbook/[name].[hash].js`,
-        assetFileNames: `MyCookbook/[name].[hash][extname]`
+        // 使用相对路径
+        entryFileNames: `assets/[name].[hash].js`,
+        chunkFileNames: `assets/[name].[hash].js`,
+        assetFileNames: ({name}) => {
+          if (name && /\.(css)$/.test(name)) {
+            return 'assets/styles/[name].[hash][extname]'
+          }
+          return 'assets/[name].[hash][extname]'
+        }
       }
     }
   }
