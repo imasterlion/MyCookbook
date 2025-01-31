@@ -16,7 +16,7 @@ export default defineConfig({
         },
         entryFileNames: '[name].[hash].js',
         chunkFileNames: '[name].[hash].js',
-        assetFileNames: '[name].[hash][extname]'  // 简化资源文件名处理
+        assetFileNames: '[name].[hash][extname]'
       }
     }
   }
