@@ -10,16 +10,14 @@ export default defineConfig({
     chunkSizeWarningLimit: 1000,
     rollupOptions: {
       output: {
-        manualChunks: undefined,
-        // 使用相对路径
-        entryFileNames: `assets/[name].[hash].js`,
-        chunkFileNames: `assets/[name].[hash].js`,
-        assetFileNames: ({name}) => {
-          if (name && /\.(css)$/.test(name)) {
-            return 'assets/styles/[name].[hash][extname]'
-          }
-          return 'assets/[name].[hash][extname]'
-        }
+        // 恢复代码分割
+        manualChunks: {
+          'vendor': ['react', 'react-dom', 'react-router-dom', 'date-fns', '@mui/material', '@mui/icons-material'],
+        },
+        // 简化输出路径
+        entryFileNames: `[name].[hash].js`,
+        chunkFileNames: `[name].[hash].js`,
+        assetFileNames: `[name].[hash][extname]`
       }
     }
   }
