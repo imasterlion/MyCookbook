@@ -9,6 +9,7 @@ import UploadRecipe from './pages/UploadRecipe';
 import RecipeDetail from './pages/RecipeDetail';
 
 function App() {
+  console.log('App rendering'); // 添加调试日志
   return (
     <Router>
       <Layout>
