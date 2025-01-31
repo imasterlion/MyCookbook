@@ -81,20 +81,12 @@ const UploadRecipe = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!validateForm()) return;
-  
-    const recipe = {
-      name,
-      images: imageUrls,
-      cookingDate: selectedDate.toISOString(),  // Convert Date to string
-      rating,
-      cookingMethod
-    };
 
-    // 保存菜品数据
+    // 直接使用 saveRecipe，删除未使用的 recipe 变量
     saveRecipe({
       name,
       images: imageUrls,
-      cookingDate: cookingDate.toISOString(), // 转换为字符串
+      cookingDate: cookingDate.toISOString(),
       rating: rating || 0,
       cookingMethod
     });
