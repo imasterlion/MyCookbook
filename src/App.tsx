@@ -1,6 +1,8 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-// 改用 HashRouter
+// 删除这行
+// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+// 添加这行
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+
 import Layout from './components/Layout';
 import Home from './pages/Home';
 import UploadRecipe from './pages/UploadRecipe';
